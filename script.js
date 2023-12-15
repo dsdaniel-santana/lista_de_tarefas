@@ -13,6 +13,7 @@ function adicionarTarefa() {
             </li>
         `
     }
+    inputTarefa.value = "";
 }
 
 function marcarConcluida(botaoConcluir) {
