@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List</title>
-    <link rel="stylesheet" href="sytle.css">
-    
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Task List</h1>
-        <input type="text" id="newTask" placeholder="Add New Task...">
-        <button onclick="addTask()">Add</button>
-        <ul id="taskList"></ul>
+        <h1>Lista de Tarefas</h1>
+        <input type="text" id="novaTarefa" placeholder="Adicionar nova tarefa...">
+        <button onclick="adicionarTarefa()">Adicionar</button>
+
+        <ul id="listaTarefas"></ul>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

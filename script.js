@@ -1,54 +1,36 @@
-function addTask() {
-    // Obtém o elemento de entrada de tarefa
-    const inputTask = document.getElementById("newTask");
-    // Obtém o texto da tarefa, removendo espaços em branco no início e no final
-    const textTask = inputTask.value.trim();
+function adicionarTarefa() {
+    const inputTarefa = document.getElementById("novaTarefa");
+    const textoTarefa = inputTarefa.value.trim();
 
-    // Verifica se o texto da tarefa não está vazio
-    if (textTask !== "") {
-        // Obtém a lista de tarefas
-        const taskList = document.getElementById("taskList"); // Corrigido o nome do ID
+    if(textoTarefa !== "") {
+        const listaTarefas = document.getElementById("listaTarefas");
 
-        // Adiciona um novo item à lista de tarefas
-        taskList.innerHTML += `
+        listaTarefas.innerHTML += `
             <li>
-                <span>${textTask}</span>
-                <button onclick="markFinished(this)">Done</button> <!-- Corrigido o nome da função -->
-                <button onclick="deleteTask(this)">Delete</button>
+                <span>${textoTarefa}</span>
+                <button onclick="marcarConcluida(this)">Concluída</button>
+                <button onclick="removerTarefa(this)">Remover</button>
             </li>
-        `;
-
-        // Limpa o campo de entrada após adicionar a tarefa
-        inputTask.value = "";
+        `
     }
 }
 
-function markFinished(buttonDone) {
-    const task = buttonDone.parentNode;
-    //adciona a classe "completed" para mudar o estilo
-    task.classList.toggle("completed");
+function marcarConcluida(botaoConcluir) {
+    const tarefa = botaoConcluir.parentNode;
 
-    if(task.classList.contains("completed")){
-        //move para o final da lista
-        document.getElementById("taskList").appendChild(task);
+    //Adiciona a classe "completed" para mudar o estilo
+    tarefa.classList.toggle("completed");
 
-        //remove os botões da tarefa concluida
-        const botoes = task.querySelectorAll("button");
-        botoes.forEach(botao => buttonDelete.remove => {
-            
-        });
+    if(tarefa.classList.contains("completed")) {
+        //Move a tarefa para o final da lista
+        document.getElementById("listaTarefas").appendChild(tarefa);
+
+        //Remove os botões da tarefa concluída
+        const botoes = tarefa.querySelectorAll("button");
+        botoes.forEach(botao => botao.remove());
     }
-
-
-    // Aqui você implementaria a lógica para marcar a tarefa como concluída
-    // Pode ser algo como adicionar uma classe ao elemento <li> correspondente
-    // ou realizar outras ações relacionadas à marcação como concluída.
-    // Esta função será chamada quando o botão "Done" for clicado.
 }
 
-function deleteTask(buttonDelete) {
-    buttonDelete.parentNode.remove();
-    // Aqui você implementaria a lógica para excluir a tarefa
-    // Pode ser algo como remover o elemento <li> correspondente da lista.
-    // Esta função será chamada quando o botão "Delete" for clicado.
+function removerTarefa(botaoRemover) {
+    botaoRemover.parentNode.remove();
 }
